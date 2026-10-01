@@ -1,0 +1,3 @@
+package com.portfoliopro.controller;
+import com.portfoliopro.dto.TradeRequest; import com.portfoliopro.entity.Trade; import com.portfoliopro.service.TradeService; import jakarta.validation.Valid; import org.springframework.security.core.Authentication; import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/trades") public class TradeController {private final TradeService service;public TradeController(TradeService service){this.service=service;}@PostMapping public Trade execute(@Valid @RequestBody TradeRequest r,Authentication a){return service.execute(a.getName(),r);}}

@@ -1,0 +1,2 @@
+import {Component,OnInit} from '@angular/core'; import {NgFor,NgIf,DecimalPipe} from '@angular/common'; import {ApiService} from '../../core/api.service';
+@Component({standalone:true,imports:[NgFor,NgIf,DecimalPipe],templateUrl:'./portfolio.component.html'}) export class PortfolioComponent implements OnInit {d:any={};constructor(private api:ApiService){}ngOnInit(){this.api.dashboard().subscribe(x=>this.d=x);}}

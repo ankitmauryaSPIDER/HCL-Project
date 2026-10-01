@@ -1,0 +1,4 @@
+-- PortfolioPro seeds demo users and stocks automatically at backend startup.
+-- Demo user:  demo@portfoliopro.com / Demo@123
+-- Admin:      admin@portfoliopro.com / Admin@123
+-- No plaintext passwords are stored in MySQL; Spring Security stores BCrypt hashes.

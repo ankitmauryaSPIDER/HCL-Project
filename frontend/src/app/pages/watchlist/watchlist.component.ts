@@ -1,0 +1,2 @@
+import {Component,OnInit} from '@angular/core'; import {NgFor,NgIf,DecimalPipe} from '@angular/common'; import {ApiService} from '../../core/api.service';
+@Component({standalone:true,imports:[NgFor,NgIf,DecimalPipe],templateUrl:'./watchlist.component.html'}) export class WatchlistComponent implements OnInit {rows:any[]=[];constructor(private api:ApiService){}ngOnInit(){this.load();}load(){this.api.watchlist().subscribe(x=>this.rows=x);}remove(id:number){this.api.removeWatch(id).subscribe(()=>this.load());}}

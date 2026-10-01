@@ -1,0 +1,7 @@
+<div *ngIf="auth.loggedIn; else publicArea" class="shell">
+  <aside class="sidebar"><div class="brand"><span class="brand-mark">P</span><div><b>PortfolioPro</b><small>Trading & Portfolio</small></div></div>
+    <nav><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a><a routerLink="/stocks" routerLinkActive="active">Stocks</a><a routerLink="/portfolio" routerLinkActive="active">Portfolio</a><a routerLink="/trade" routerLinkActive="active">Trade</a><a routerLink="/transactions" routerLinkActive="active">Transactions</a><a routerLink="/watchlist" routerLinkActive="active">Watchlist</a><a routerLink="/analysis" routerLinkActive="active">Analysis</a><a *ngIf="auth.isAdmin" routerLink="/admin" routerLinkActive="active">Admin</a><a routerLink="/profile" routerLinkActive="active">Profile</a></nav>
+    <button class="logout" (click)="logout()">Logout</button>
+  </aside><main><header class="topbar"><div><h1>PortfolioPro</h1><p>Simple paper trading and portfolio management</p></div><div class="user-chip">{{auth.current?.name}}</div></header><router-outlet/></main>
+</div>
+<ng-template #publicArea><router-outlet/></ng-template>

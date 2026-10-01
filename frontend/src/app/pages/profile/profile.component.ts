@@ -1,0 +1,2 @@
+import {Component,OnInit} from '@angular/core'; import {NgIf,DecimalPipe} from '@angular/common'; import {ApiService} from '../../core/api.service'; import {AuthService} from '../../core/auth.service';
+@Component({standalone:true,imports:[NgIf,DecimalPipe],templateUrl:'./profile.component.html'}) export class ProfileComponent implements OnInit {u:any;constructor(private api:ApiService,public auth:AuthService){}ngOnInit(){this.api.me().subscribe(x=>this.u=x);}}

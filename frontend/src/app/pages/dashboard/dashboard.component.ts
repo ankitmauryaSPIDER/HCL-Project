@@ -1,0 +1,2 @@
+import {Component,OnInit} from '@angular/core'; import {NgFor,NgIf,DecimalPipe,SlicePipe} from '@angular/common'; import {RouterLink} from '@angular/router'; import {ApiService} from '../../core/api.service';
+@Component({standalone:true,imports:[NgFor,NgIf,DecimalPipe,SlicePipe,RouterLink],templateUrl:'./dashboard.component.html'}) export class DashboardComponent implements OnInit {d:any={holdings:[],transactions:[],watchlist:[],riskWarnings:[]};constructor(private api:ApiService){}ngOnInit(){this.api.dashboard().subscribe(x=>this.d=x);}}

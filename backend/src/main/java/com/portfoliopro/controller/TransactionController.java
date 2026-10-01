@@ -1,0 +1,3 @@
+package com.portfoliopro.controller;
+import com.portfoliopro.dto.TransactionResponse; import com.portfoliopro.service.PortfolioService; import org.springframework.security.core.Authentication; import org.springframework.web.bind.annotation.*; import java.util.List;
+@RestController @RequestMapping("/api/transactions") public class TransactionController {private final PortfolioService service;public TransactionController(PortfolioService service){this.service=service;}@GetMapping public List<TransactionResponse> all(Authentication a){return service.transactions(service.userByEmail(a.getName()).getId());}}

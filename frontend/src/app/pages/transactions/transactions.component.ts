@@ -1,0 +1,2 @@
+import {Component,OnInit} from '@angular/core'; import {NgFor,NgIf,DecimalPipe,DatePipe} from '@angular/common'; import {ApiService} from '../../core/api.service';
+@Component({standalone:true,imports:[NgFor,NgIf,DecimalPipe,DatePipe],templateUrl:'./transactions.component.html'}) export class TransactionsComponent implements OnInit {rows:any[]=[];constructor(private api:ApiService){}ngOnInit(){this.api.transactions().subscribe(x=>this.rows=x);}}

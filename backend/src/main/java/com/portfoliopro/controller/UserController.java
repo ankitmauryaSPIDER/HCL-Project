@@ -1,0 +1,3 @@
+package com.portfoliopro.controller;
+import com.portfoliopro.entity.User; import com.portfoliopro.service.UserService; import org.springframework.security.core.Authentication; import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/users") public class UserController {private final UserService service;public UserController(UserService service){this.service=service;}@GetMapping("/me") public User me(Authentication a){return service.all().stream().filter(u->u.getEmail().equalsIgnoreCase(a.getName())).findFirst().orElseThrow();}@GetMapping public java.util.List<User> all(){return service.all();}}

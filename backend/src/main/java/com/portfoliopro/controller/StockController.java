@@ -1,0 +1,3 @@
+package com.portfoliopro.controller;
+import com.portfoliopro.dto.StockRequest; import com.portfoliopro.entity.Stock; import com.portfoliopro.service.StockService; import jakarta.validation.Valid; import org.springframework.security.access.prepost.PreAuthorize; import org.springframework.web.bind.annotation.*; import java.util.List;
+@RestController @RequestMapping("/api/stocks") public class StockController {private final StockService service;public StockController(StockService service){this.service=service;}@GetMapping public List<Stock> all(@RequestParam(required=false) String q){return service.all(q);}@GetMapping("/{id}") public Stock get(@PathVariable Long id){return service.get(id);}}

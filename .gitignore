@@ -1,0 +1,16 @@
+# Java
+backend/target/
+*.class
+# Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+# Local migration session artifacts
+backend/.github/modernize/
+# IDE
+.vscode/
+.idea/
+*.iml
+# Local secrets
+a.env
+.env
